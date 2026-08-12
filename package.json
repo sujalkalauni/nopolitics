@@ -1,0 +1,24 @@
+{
+  "name": "nopolitics",
+  "version": "1.0.0",
+  "description": "Chrome/Edge extension that removes political content, rage-bait, and campaign noise from Twitter/X and Instagram feeds.",
+  "type": "module",
+  "scripts": {
+    "start": "node ./scripts/server.js",
+    "dev": "node ./scripts/server.js",
+    "test": "node ./tests/classifier.test.js",
+    "icons": "node ./scripts/generate_icons.js"
+  },
+  "keywords": [
+    "browser-extension",
+    "chrome-extension",
+    "feed-filter",
+    "no-politics",
+    "twitter",
+    "instagram",
+    "content-moderation",
+    "manifest-v3"
+  ],
+  "author": "Antigravity & User",
+  "license": "MIT"
+}

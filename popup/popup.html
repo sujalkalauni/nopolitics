@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NoPolitics - Feed Filter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="logo-shield">
+          <svg viewBox="0 0 24 24" class="shield-icon">
+            <path d="M12 2L4 6v6c0 5.25 3.4 10.15 8 11.35 4.6-1.2 8-6.1 8-11.35V6l-8-4zm-1 15.5l-4-4 1.41-1.41L11 14.67l6.59-6.59L19 9.5l-8 8z"/>
+          </svg>
+          <div class="glow-orb"></div>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">NoPolitics<span class="pro-tag">ZEN</span></div>
+          <div class="status-indicator" id="statusIndicator">
+            <span class="pulsing-dot"></span>
+            <span class="status-label" id="statusLabel">Shield Active</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Master Power Switch -->
+      <label class="master-switch">
+        <input type="checkbox" id="masterToggle" checked>
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <!-- Stats Glass Card -->
+    <section class="stats-card">
+      <div class="stat-col">
+        <span class="stat-val" id="statToday">0</span>
+        <span class="stat-lbl">Hidden Today</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-col">
+        <span class="stat-val" id="statTotal">0</span>
+        <span class="stat-lbl">All-Time</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-col">
+        <span class="stat-val" id="statTime">0m</span>
+        <span class="stat-lbl">Peace Saved</span>
+      </div>
+    </section>
+
+    <!-- Filter Style Segmented Control -->
+    <section class="control-group">
+      <div class="group-title">Filter Style</div>
+      <div class="segmented-control" id="filterStyleControl">
+        <button class="segment-btn active" data-style="blur">
+          <span class="seg-icon">👁️</span>
+          <span>Blur</span>
+        </button>
+        <button class="segment-btn" data-style="pill">
+          <span class="seg-icon">📋</span>
+          <span>Pill</span>
+        </button>
+        <button class="segment-btn" data-style="ghost">
+          <span class="seg-icon">👻</span>
+          <span>Ghost</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Strictness Selector -->
+    <section class="control-group">
+      <div class="group-title">
+        <span>Strictness</span>
+        <span class="strictness-badge" id="strictnessBadge">Balanced</span>
+      </div>
+      <div class="segmented-control" id="strictnessControl">
+        <button class="segment-btn" data-strictness="relaxed">Relaxed</button>
+        <button class="segment-btn active" data-strictness="balanced">Balanced</button>
+        <button class="segment-btn" data-strictness="strict">Strict</button>
+      </div>
+    </section>
+
+    <!-- Target Platforms -->
+    <section class="control-group">
+      <div class="group-title">Active Platforms</div>
+      <div class="platform-switches">
+        <div class="platform-row">
+          <div class="platform-info">
+            <span class="platform-icon">𝕏</span>
+            <span class="platform-name">Twitter / X</span>
+          </div>
+          <label class="toggle-sm">
+            <input type="checkbox" id="toggleTwitter" checked>
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+        <div class="platform-row">
+          <div class="platform-info">
+            <span class="platform-icon insta-grad">📸</span>
+            <span class="platform-name">Instagram</span>
+          </div>
+          <label class="toggle-sm">
+            <input type="checkbox" id="toggleInstagram" checked>
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Add Blocked Keyword -->
+    <section class="control-group">
+      <div class="group-title">Quick Block Keyword</div>
+      <div class="quick-input-group">
+        <input type="text" id="quickKeywordInput" placeholder="e.g. candidate name, bill, tag..." spellcheck="false">
+        <button id="quickAddBtn" class="add-btn" title="Add Keyword">+</button>
+      </div>
+      <div class="quick-tags" id="quickTags"></div>
+    </section>
+
+    <!-- AI Booster Indicator -->
+    <div class="ai-status-row" id="aiStatusRow">
+      <div class="ai-label">
+        <span class="ai-sparkle">✨</span>
+        <span>Gemini AI Booster</span>
+      </div>
+      <span class="ai-badge" id="aiBadge">Offline (Heuristic only)</span>
+    </div>
+
+    <!-- Footer Actions -->
+    <footer class="footer">
+      <button class="btn-dashboard" id="openSettingsBtn">
+        <svg viewBox="0 0 24 24" class="btn-icon">
+          <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+        </svg>
+        Full Settings & Regions
+      </button>
+      <button class="btn-playground" id="openPlaygroundBtn" title="Test feeds in playground">
+        🧪 Test Simulator
+      </button>
+    </footer>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

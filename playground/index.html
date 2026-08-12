@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NoPolitics - Live Social Feed Simulator & Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../scripts/content.css">
+  <link rel="stylesheet" href="playground.css">
+</head>
+<body>
+  <div class="simulator-app">
+    <!-- Top Global Bar -->
+    <header class="sim-header">
+      <div class="sim-brand">
+        <div class="logo-shield">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L4 6v6c0 5.25 3.4 10.15 8 11.35 4.6-1.2 8-6.1 8-11.35V6l-8-4zm-1 15.5l-4-4 1.41-1.41L11 14.67l6.59-6.59L19 9.5l-8 8z"/>
+          </svg>
+        </div>
+        <div>
+          <h1>NoPolitics Live Feed Simulator</h1>
+          <p class="sim-desc">Experience real-time Twitter/X and Instagram feeds before & after political filtering.</p>
+        </div>
+      </div>
+
+      <div class="sim-controls-top">
+        <div class="stat-pill">
+          <span class="dot-live"></span>
+          <span>Shield Active</span>
+        </div>
+        <div class="stat-pill stats-counter">
+          <span>Filtered: <strong id="topFilteredCount">0</strong> / <span id="topScannedCount">0</span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Simulator Grid -->
+    <div class="sim-container">
+      <!-- Left: Interactive Control Studio -->
+      <aside class="sim-panel">
+        <div class="control-box">
+          <h3>⚡ Filter Controls</h3>
+
+          <div class="control-row">
+            <label>Master Filter Switch</label>
+            <label class="toggle">
+              <input type="checkbox" id="simMasterToggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="control-group">
+            <label>Filter Presentation Style</label>
+            <div class="seg-row">
+              <button class="seg-btn active" data-style="blur">👁️ Blur Overlay</button>
+              <button class="seg-btn" data-style="pill">📋 Clean Pill</button>
+              <button class="seg-btn" data-style="ghost">👻 Ghost</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Detection Strictness</label>
+            <div class="seg-row">
+              <button class="seg-btn" data-strictness="relaxed">Relaxed (0.75)</button>
+              <button class="seg-btn active" data-strictness="balanced">Balanced (0.50)</button>
+              <button class="seg-btn" data-strictness="strict">Strict (0.30)</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Active Feed Platform Tab</label>
+            <div class="seg-row">
+              <button class="seg-btn active" id="btnShowTwitter">𝕏 Twitter / X Feed</button>
+              <button class="seg-btn" id="btnShowInstagram">📸 Instagram Feed</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Quick Block Custom Word</label>
+            <div class="sim-input-row">
+              <input type="text" id="simCustomInput" placeholder="Add custom word to block...">
+              <button id="simAddCustomBtn" class="btn-sim-action">+</button>
+            </div>
+            <div class="sim-tags-row" id="simTagsRow"></div>
+          </div>
+
+          <div class="control-group">
+            <label>Add Custom Test Post to Feed</label>
+            <textarea id="simNewPostText" rows="3" placeholder="Type any tweet or caption to inject live into the feed..."></textarea>
+            <button id="simInjectPostBtn" class="btn-primary" style="width: 100%; margin-top: 8px;">
+              🚀 Inject Post Into Feed
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Center & Right: Live Social Media Feed Stream -->
+      <main class="sim-feed-stream">
+        <div class="feed-tabs-header">
+          <div class="active-platform-banner" id="activePlatformBanner">
+            <span id="platformLogo">𝕏</span>
+            <span id="platformTitle">Twitter / X Live Timeline Simulation</span>
+          </div>
+          <button id="resetSampleFeedBtn" class="btn-secondary" style="font-size: 12px; padding: 6px 12px;">
+            🔄 Reset Feed
+          </button>
+        </div>
+
+        <!-- The Feed Container mimicking X or Instagram DOM -->
+        <div class="feed-viewport" id="feedViewport">
+          <!-- Dynamically populated sample posts -->
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="playground.js"></script>
+</body>
+</html>

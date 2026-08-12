@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NoPolitics - Settings & Intelligence Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo-shield">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L4 6v6c0 5.25 3.4 10.15 8 11.35 4.6-1.2 8-6.1 8-11.35V6l-8-4zm-1 15.5l-4-4 1.41-1.41L11 14.67l6.59-6.59L19 9.5l-8 8z"/>
+          </svg>
+        </div>
+        <div>
+          <h2>NoPolitics</h2>
+          <span class="sub-ver">v1.0.0 • ZenFeed</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="regions">
+          <span class="nav-icon">🌍</span>
+          <span>Regional Filters</span>
+        </button>
+        <button class="nav-item" data-tab="rules">
+          <span class="nav-icon">🛡️</span>
+          <span>Custom Rules</span>
+        </button>
+        <button class="nav-item" data-tab="ai">
+          <span class="nav-icon">✨</span>
+          <span>Gemini AI Engine</span>
+        </button>
+        <button class="nav-item" data-tab="appearance">
+          <span class="nav-icon">🎨</span>
+          <span>Appearance & Filter</span>
+        </button>
+        <button class="nav-item" data-tab="analytics">
+          <span class="nav-icon">📊</span>
+          <span>Stats & Data</span>
+        </button>
+        <button class="nav-item" data-tab="testsuite">
+          <span class="nav-icon">🧪</span>
+          <span>Live Playground</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="zen-tip">
+          <span class="tip-icon">🧘</span>
+          <p>Feeds without political rage-bait are scientifically proven to reduce stress and doomscrolling.</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div>
+          <h1 id="pageTitle">Regional Filters</h1>
+          <p class="page-desc" id="pageDesc">Select which geographic regions and political scenes you want to filter out.</p>
+        </div>
+        <div class="topbar-actions">
+          <button id="saveAllBtn" class="btn-primary">
+            <svg viewBox="0 0 24 24" class="btn-icon">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+            Save Changes
+          </button>
+        </div>
+      </header>
+
+      <!-- Toast Notification -->
+      <div id="toast" class="toast">Settings successfully updated!</div>
+
+      <!-- Tab 1: Regional Filters -->
+      <section class="tab-panel active" id="tab-regions">
+        <div class="grid-2">
+          <!-- US Politics Card -->
+          <div class="card region-card">
+            <div class="card-header">
+              <div class="region-info">
+                <span class="region-flag">🇺🇸</span>
+                <div>
+                  <h3>United States Politics</h3>
+                  <p>Presidents, Congress, Senate, SCOTUS, Trump, Biden, Harris, GOP, DNC, MAGA, elections.</p>
+                </div>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="region-us" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="card-footer-tags">
+              <span class="chip">Trump</span>
+              <span class="chip">Biden</span>
+              <span class="chip">Harris</span>
+              <span class="chip">Elections</span>
+              <span class="chip">SCOTUS</span>
+              <span class="chip">GOP</span>
+              <span class="chip">+40 more</span>
+            </div>
+          </div>
+
+          <!-- India Politics Card -->
+          <div class="card region-card">
+            <div class="card-header">
+              <div class="region-info">
+                <span class="region-flag">🇮🇳</span>
+                <div>
+                  <h3>Indian Politics</h3>
+                  <p>Modi, Rahul Gandhi, BJP, Congress, AAP, Lok Sabha, Yogi, Hindutva, state elections.</p>
+                </div>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="region-india" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="card-footer-tags">
+              <span class="chip">Modi</span>
+              <span class="chip">Rahul Gandhi</span>
+              <span class="chip">BJP</span>
+              <span class="chip">Congress</span>
+              <span class="chip">Lok Sabha</span>
+              <span class="chip">EVM</span>
+              <span class="chip">+50 more</span>
+            </div>
+          </div>
+
+          <!-- UK / EU / Global Card -->
+          <div class="card region-card">
+            <div class="card-header">
+              <div class="region-info">
+                <span class="region-flag">🇬🇧 🇪🇺</span>
+                <div>
+                  <h3>UK, Europe & Geopolitics</h3>
+                  <p>Starmer, Sunak, Tories, Labour, Parliament, EU, Putin, Zelensky, Netanyahu, UN.</p>
+                </div>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="region-uk_eu_global" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="card-footer-tags">
+              <span class="chip">Starmer</span>
+              <span class="chip">Tories</span>
+              <span class="chip">Labour</span>
+              <span class="chip">Putin</span>
+              <span class="chip">Zelensky</span>
+              <span class="chip">Geopolitics</span>
+              <span class="chip">+35 more</span>
+            </div>
+          </div>
+
+          <!-- General Politics Card -->
+          <div class="card region-card">
+            <div class="card-header">
+              <div class="region-info">
+                <span class="region-flag">🌐</span>
+                <div>
+                  <h3>General Political Concepts</h3>
+                  <p>Voting, legislation, protests, rallies, propaganda, left/right wing, democracy debates.</p>
+                </div>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="region-general" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="card-footer-tags">
+              <span class="chip">Elections</span>
+              <span class="chip">Ballots</span>
+              <span class="chip">Protest</span>
+              <span class="chip">Legislation</span>
+              <span class="chip">Partisan</span>
+              <span class="chip">+45 more</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 2: Custom Rules -->
+      <section class="tab-panel" id="tab-rules">
+        <div class="grid-2">
+          <!-- Blocklist Card -->
+          <div class="card">
+            <div class="card-title-group">
+              <div class="card-icon block-icon">🚫</div>
+              <div>
+                <h3>Custom Blocklist</h3>
+                <p>Always hide posts containing any of these words or phrases (100% block).</p>
+              </div>
+            </div>
+
+            <div class="input-action-row">
+              <input type="text" id="addBlockInput" placeholder="Add word or phrase (e.g. candidate name, scandal)...">
+              <button id="addBlockBtn" class="btn-secondary">Add</button>
+            </div>
+
+            <div class="tag-cloud-container" id="blockListContainer"></div>
+          </div>
+
+          <!-- Whitelist Card -->
+          <div class="card">
+            <div class="card-title-group">
+              <div class="card-icon allow-icon">✅</div>
+              <div>
+                <h3>Custom Whitelist (Safe Words)</h3>
+                <p>Never hide posts containing these terms, even if they match political keywords.</p>
+              </div>
+            </div>
+
+            <div class="input-action-row">
+              <input type="text" id="addWhiteInput" placeholder="Add safe word (e.g. video game name, sports team)...">
+              <button id="addWhiteBtn" class="btn-secondary">Add</button>
+            </div>
+
+            <div class="tag-cloud-container" id="whiteListContainer"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 3: Gemini AI Engine -->
+      <section class="tab-panel" id="tab-ai">
+        <div class="card ai-card-highlight">
+          <div class="card-header">
+            <div class="ai-header-left">
+              <span class="ai-icon-large">✨</span>
+              <div>
+                <h3>Google Gemini 1.5 Flash AI Booster</h3>
+                <p>Empower NoPolitics with on-demand AI analysis to catch covert political sarcasm, dogwhistles, and nuanced political debates that keywords miss.</p>
+              </div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="aiBoosterToggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="ai-config-body">
+            <div class="form-group">
+              <label for="geminiApiKey">Google AI Studio API Key</label>
+              <div class="input-with-button">
+                <input type="password" id="geminiApiKey" placeholder="AIzaSy..." spellcheck="false">
+                <button id="testApiKeyBtn" class="btn-secondary">Test Key</button>
+              </div>
+              <small class="field-hint">
+                Get a 100% free API key from <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a>. Keys are stored safely in local browser storage only.
+              </small>
+            </div>
+
+            <div id="aiTestResult" class="ai-test-result"></div>
+
+            <div class="ai-features-grid">
+              <div class="ai-feature-item">
+                <span class="feature-bullet">⚡</span>
+                <div>
+                  <strong>0ms Latency via Smart Caching</strong>
+                  <p>Posts are evaluated once and cached locally. Instant page loads.</p>
+                </div>
+              </div>
+              <div class="ai-feature-item">
+                <span class="feature-bullet">🎯</span>
+                <div>
+                  <strong>Hybrid Trigger</strong>
+                  <p>Only invoked on borderline posts (score 0.35-0.70), preserving free API quota.</p>
+                </div>
+              </div>
+              <div class="ai-feature-item">
+                <span class="feature-bullet">🔒</span>
+                <div>
+                  <strong>Privacy First</strong>
+                  <p>Only the post text snippet is verified. No account data or tokens are transmitted.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 4: Appearance & Filter -->
+      <section class="tab-panel" id="tab-appearance">
+        <div class="card">
+          <h3>Filter Presentation Mode</h3>
+          <p class="subtitle">Choose how filtered political posts look on Twitter and Instagram.</p>
+
+          <div class="preview-mode-grid">
+            <label class="mode-card">
+              <input type="radio" name="displayMode" value="blur" checked>
+              <div class="mode-card-content">
+                <span class="mode-icon">👁️</span>
+                <h4>Soft Zen (Blur & Reveal)</h4>
+                <p>Post is blurred with an elegant glass overlay. Click "Show Post" anytime to peek.</p>
+              </div>
+            </label>
+
+            <label class="mode-card">
+              <input type="radio" name="displayMode" value="pill">
+              <div class="mode-card-content">
+                <span class="mode-icon">📋</span>
+                <h4>Clean Pill (Collapsed Banner)</h4>
+                <p>Post is collapsed into a slim, single-line banner with the reason and an expand button.</p>
+              </div>
+            </label>
+
+            <label class="mode-card">
+              <input type="radio" name="displayMode" value="ghost">
+              <div class="mode-card-content">
+                <span class="mode-icon">👻</span>
+                <h4>Ghost Mode (Total Vanish)</h4>
+                <p>Post is completely removed from the timeline. Pure zero-clutter infinite scroll.</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 20px;">
+          <h3>Sensitivity & Strictness</h3>
+          <p class="subtitle">Control how aggressive the detection algorithm should be.</p>
+
+          <div class="strictness-selector-large">
+            <label class="strictness-option">
+              <input type="radio" name="optStrictness" value="relaxed">
+              <div class="strictness-box">
+                <strong>Relaxed (0.75)</strong>
+                <p>Only blocks blatant politicians, direct campaign appeals, and formal elections.</p>
+              </div>
+            </label>
+            <label class="strictness-option">
+              <input type="radio" name="optStrictness" value="balanced" checked>
+              <div class="strictness-box">
+                <strong>Balanced (0.50) — Recommended</strong>
+                <p>Filters political commentary, government debates, and partisan arguments.</p>
+              </div>
+            </label>
+            <label class="strictness-option">
+              <input type="radio" name="optStrictness" value="strict">
+              <div class="strictness-box">
+                <strong>Strict (0.30)</strong>
+                <p>Catches even passing references to policy, social protests, and international summits.</p>
+              </div>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 5: Analytics -->
+      <section class="tab-panel" id="tab-analytics">
+        <div class="stats-overview-grid">
+          <div class="metric-card">
+            <span class="metric-num" id="metricToday">0</span>
+            <span class="metric-label">Filtered Today</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-num" id="metricTotal">0</span>
+            <span class="metric-label">Total Filtered All-Time</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-num" id="metricMinutes">0</span>
+            <span class="metric-label">Minutes of Peace Saved</span>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 20px;">
+          <h3>Data Management</h3>
+          <p class="subtitle">Reset your local statistics or export your custom blocklists.</p>
+          <div class="data-actions-row">
+            <button id="resetStatsBtn" class="btn-danger">Reset Statistics</button>
+            <button id="exportSettingsBtn" class="btn-secondary">Export Settings (JSON)</button>
+            <button id="importSettingsBtn" class="btn-secondary">Import Settings</button>
+            <input type="file" id="importFileInput" accept=".json" style="display: none;">
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 6: Live Playground -->
+      <section class="tab-panel" id="tab-testsuite">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3>Interactive Post Analyzer & Feed Simulator</h3>
+              <p>Paste any social media post or tweet below to test detection score, matched keywords, and preview how it will look in your feed.</p>
+            </div>
+            <button id="loadSamplePostBtn" class="btn-secondary">Load Sample Post</button>
+          </div>
+
+          <div class="playground-layout">
+            <div class="playground-input-side">
+              <textarea id="playgroundInput" placeholder="Paste a tweet or Instagram post caption here to test..." rows="5"></textarea>
+              <button id="runPlaygroundAnalysisBtn" class="btn-primary" style="margin-top: 10px; width: 100%;">
+                ⚡ Run Instant Analysis
+              </button>
+            </div>
+
+            <div class="playground-result-side">
+              <div id="playgroundVerdict" class="verdict-banner">
+                Enter text and click Run Analysis
+              </div>
+              <div class="score-breakdown" id="scoreBreakdown"></div>
+            </div>
+          </div>
+
+          <h4 style="margin-top: 24px; margin-bottom: 12px; color: #94a3b8;">Feed Appearance Simulation:</h4>
+          <div id="simulatedFeedContainer" class="simulated-feed"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>
