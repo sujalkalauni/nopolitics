@@ -1,20 +1,20 @@
-# NoPolitics (ZenFeed) 🛡️🧘
+# NoPolitics (ZenFeed) 
 > **Clean your social media feeds from political noise, election rage-bait, and toxic debates on Twitter/X and Instagram.**
 
 Social media was made to connect, have fun, laugh at memes, and follow hobbies. **NoPolitics** restores peace to your feeds using a high-precision hybrid engine (Instant Local Keyword & Entity Intelligence + optional Google Gemini 1.5 Flash AI Booster).
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 1. **Dual Platform Support**:
    - **Twitter / X** (`x.com`, `twitter.com`): Filters tweets, quoted tweets, and retweets in real time as you scroll.
    - **Instagram** (`instagram.com`): Filters feed posts, reels captions, and explore hashtags.
 
 2. **3 Filter Presentation Modes**:
-   - 👁️ **Soft Zen (Blur Overlay)**: Posts are smoothly blurred with a frosted-glass shield badge showing matched topics. Click **"Show Post"** anytime to peek.
-   - 📋 **Clean Pill**: Collapses political posts into a sleek, one-line banner showing the matched reason and an expand button.
-   - 👻 **Ghost Mode**: Political posts vanish completely from the timeline without leaving gaps or layout stutter.
+   -  **Soft Zen (Blur Overlay)**: Posts are smoothly blurred with a frosted-glass shield badge showing matched topics. Click **"Show Post"** anytime to peek.
+   -  **Clean Pill**: Collapses political posts into a sleek, one-line banner showing the matched reason and an expand button.
+   -  **Ghost Mode**: Political posts vanish completely from the timeline without leaving gaps or layout stutter.
 
 3. **Hybrid Detection Engine**:
    - **Tier 1 (Instant 0ms Heuristics)**: Built-in database of thousands of political entities across **United States**, **India**, **UK & Europe**, and **Global Geopolitics**, with multi-term synergy scoring.
@@ -33,7 +33,7 @@ Social media was made to connect, have fun, laugh at memes, and follow hobbies. 
 
 ---
 
-## 🚀 How to Install in Your Browser (30 Seconds)
+##  How to Install in Your Browser (30 Seconds)
 
 Works directly on **Google Chrome**, **Microsoft Edge**, and **Brave**:
 
@@ -51,7 +51,7 @@ Works directly on **Google Chrome**, **Microsoft Edge**, and **Brave**:
 
 ---
 
-## 🧪 Try the Live Feed Simulator
+##  Try the Live Feed Simulator
 
 Want to see how it works before browsing Twitter or Instagram?
 You can open the built-in **Live Social Feed Simulator**:
@@ -65,7 +65,7 @@ You can open the built-in **Live Social Feed Simulator**:
 
 ---
 
-## ⚙️ Control Center & Settings
+##  Control Center & Settings
 
 Click the extension icon in your toolbar to:
 - Toggle the shield on or off with the master power switch.
@@ -79,7 +79,7 @@ Click the extension icon in your toolbar to:
 
 ---
 
-## 🔬 Running Automated Tests
+##  Running Automated Tests
 
 To verify detection precision and safe-exclusion edge cases:
 ```bash
@@ -89,7 +89,7 @@ All 16 test cases run and validate 100% accuracy across US, Indian, UK, and safe
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 k:/nopolitics/
